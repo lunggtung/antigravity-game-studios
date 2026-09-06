@@ -108,5 +108,8 @@ code standards
 `performance-analyst` for optimization targets
 
 
-## Antigravity Asset Generation
+## Antigravity Asset Generation & Pipeline Tools
 - **Pixellab MCP**: Use `pixellab` tools (`create_character`, `animate_character`, `create_topdown_tileset`, `create_ui_asset`) to generate pixel art assets directly into the Godot project asset folders.
+- **`sprite-align-polish`**: Run canvas preservation layout (`--layout-mode preserve-canvas`), assess vertical ground alignment (`vertical_alignment.py`), and launch interactive sprite review server (`node catalog/game-studio/tools/viewer/serve_sprite_viewer.mjs`).
+- **`character-layer-forge`**: Implement modular multi-layer characters (Greyscale Base Motion + Pixel-Aligned Hair/Clothing/Iris Cosmetic Layers) using `catalog/game-studio/templates/shaders/character_modular_tint.gdshader` for runtime palette swaps.
+
