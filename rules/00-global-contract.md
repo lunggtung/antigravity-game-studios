@@ -6,32 +6,45 @@ Apply this unified operating system whenever the user asks for implementation, d
 
 Multi-Agent OS transforms Antigravity into an autonomous multi-agent organization. The system operates via **Specialized Pods/Squads**, communicates via **Blackboard Artifacts**, isolates workspaces via **Git Worktrees**, and validates code via **Adversarial Red-Teaming and Deterministic Execution**.
 
-## Operating Modes (5 Chế Độ Vận Hành Chính)
+## Operating Modes (4 Chế Độ Vận Hành Cốt Lõi)
 
 1. **`goal-mode`**: Chế độ tự hành mục tiêu dài hạn, checkpointing, crash recovery (Scale S0-S4).
-2. **`software-team-mode`**: Chế độ tổ chức phần mềm Fullstack (Product BA, System Architect, Fullstack Coders, QA).
+2. **`software-team-mode`**: Chế độ công ty phần mềm Fullstack (Product BA, System Architect, Fullstack Coders, QA).
 3. **`game-studio-mode`**: Chế độ studio game Godot (GDD, 2D Pixel / 3D glTF, Master Asset Forge, Godot MCP, Bot Playtester).
 4. **`tactical-tdd-mode`**: Chế độ lập trình chiến thuật hàng ngày, Red-Green-Refactor, bisection debugging.
-5. **`redteam-audit-mode`**: Chế độ kiểm toán an ninh & phản biện mã nguồn (Saboteur, Security Red-Team, Senior Skeptic).
 
-## Universal Spec-First Lifecycle (Spec Là Nền Móng Tiên Quyết - Không Phải Một Mode Rời Rạc)
+## Universal Lifecycle Architecture: Hai Cổng Bảo Vệ Đầu - Cuối Bắt Buộc
 
-Spec **KHÔNG PHẢI** là một chế độ hoạt động riêng biệt để người dùng phải nhớ bật. Trong Multi-Agent OS, **SPEC LÀ GIAI ĐOẠN TIÊN QUYẾT BẮT BUỘC (PHASE 0 / GATE 0) CỦA MỌI CHẾ ĐỘ VẬN HÀNH**:
+> **NGUYÊN TẮC BẤT BIẾN**: Cả **Spec (Đặc tả)** và **Red-Team Audit (Kiểm toán phản biện)** đều **KHÔNG PHẢI LÀ MODE RIÊNG BIỆT**.
+> Nếu coi chúng là mode, Agent sẽ nảy sinh tâm lý ỷ lại, bỏ qua bước lập Spec khi code và bỏ qua bước kiểm toán bảo mật khi bàn giao.
+> Trong Multi-Agent OS, chúng là **HAI CỔNG CHẶN BẮT BUỘC (MANDATORY GATES)** bao bọc toàn bộ 4 chế độ vận hành:
 
 ```
-[PHA 0: SPEC GATE (BẮT BUỘC)]  --> Phải tạo file spec bền vững trong specs/ của dự án
-        │
-        ▼
-[PHA 1: ARCHITECTURE GATE]     --> Phê duyệt kiến trúc, API contract, Scale profile
-        │
-        ▼
-[PHA 2: EXECUTION & TDD]       --> Triển khai code, gọi PixelLab theo đúng spec đã duyệt
-        │
-        ▼
-[PHA 3: QA & AUDIT GATE]       --> Kiểm thử tự hành, playtest, kiểm toán an ninh
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CỔNG ĐẦU (GATE 0): SPEC-FIRST GATE (BẮT BUỘC)                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ • Tạo tài liệu spec bền vững trong specs/ của dự án (không chỉ ghi brain tạm)│
+│ • Đối với Game: Bắt buộc Asset Spec Gate (entity-inventory, scale budget)   │
+│ • CẤM VIẾT CODE HOẶC GỌI TOOL SINH ASSET KHI CHƯA QUA GATE 0                 │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       │
+                                       ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CỔNG 1 & 2: ARCHITECTURE & PRODUCTION TDD                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ • Thiết kế kiến trúc, hợp đồng API, scale profile                            │
+│ • Lập trình TDD, sinh asset chuẩn kích thước, hậu xử lý tất định             │
+└──────────────────────────────────────┬──────────────────────────────────────┘
+                                       │
+                                       ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CỔNG CUỐI (GATE 3): RED-TEAM AUDIT & QA GATE (BẮT BUỘC)                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ • Kiểm toán độc lập: The Saboteur (phản biện lỗ hổng), Security Audit        │
+│ • Kiểm thử tự hành: Compiler Check, Test Suite Pass, Bot Playtester         │
+│ • CẤM TỰ TUYÊN BỐ "HOÀN THÀNH" NẾU CHƯA CÓ BẰNG CHỨNG GATE 3 (Exit Code 0)   │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
-
-- Bất kể bạn đang ở `goal-mode`, `software-team-mode` hay `game-studio-mode`, Agent **KHÔNG BAO GIỜ** được phép nhảy cóc vào viết code hay gọi API sinh asset khi chưa hoàn thành Pha 0 trong `specs/`.
 
 ## Communication Contract
 
