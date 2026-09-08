@@ -68,7 +68,24 @@ Multi-Agent OS transforms Antigravity into an autonomous multi-agent organizatio
 2. Do not use hard-string, regex, or script-based bulk source edits unless AST-safe or explicitly approved.
 3. Do not mark a task or pull request complete without deterministic execution evidence (Exit Code 0).
 4. Do not allow single-agent self-verification without independent adversarial review or compiler check.
-5. Do not load all skills into context; use Dynamic Cartridge Injection from `catalog/`.
+5. Do not load all skills into context; use Dynamic Cartridge Injection from `catalog/`:
+   Khi nhận task, Agent BẮT BUỘC gọi `view_file` nạp kén kỹ năng từ `catalog/` theo bản đồ:
+   - **Sprite 2D / Hoạt ảnh / Chroma Grid**: `catalog/game-studio/skills/sprite-forge/SKILL.md`
+   - **Bản đồ phân tầng / TileSet / Props**: `catalog/game-studio/skills/map-forge/SKILL.md`
+   - **Khử rung tiếp đất / Review Sprite**: `catalog/game-studio/skills/sprite-align-polish/SKILL.md`
+   - **Nhân vật đa tầng / Shader Tinting**: `catalog/game-studio/skills/character-layer-forge/SKILL.md`
+   - **Đặc tả tài nguyên / Entity Inventory**: `catalog/game-studio/skills/asset-spec/SKILL.md`
+   - **Game Design / GDD / Balance**: `catalog/game-studio/skills/design-system/SKILL.md`
+   - **Chiến đấu (Combat)**: `catalog/game-studio/skills/team-combat/SKILL.md`
+   - **Màn chơi (Level)**: `catalog/game-studio/skills/team-level/SKILL.md`
+   - **Giao diện (UI/HUD)**: `catalog/game-studio/skills/team-ui/SKILL.md`
+   - **Đánh bóng (Juice / Polish)**: `catalog/game-studio/skills/team-polish/SKILL.md`
+   - **Kiểm thử tự hành (Bot Playtest)**: `catalog/game-studio/skills/team-qa/SKILL.md`
+   - **Software Product BA / Spec**: `catalog/software/product/product-ba.md`
+   - **Software Architect / API Contract**: `catalog/software/architecture/system-architect.md`
+   - **Software Fullstack Coder / TDD**: `catalog/software/engineering/fullstack-coder.md`
+   - **Software QA & Test Matrix**: `catalog/software/qa/qa-engineer.md`
+   - **Security Audit & Hardening**: `catalog/software/security/security-auditor.md`
 6. **Persistent Spec Before Implementation**:
    - Mọi task phát triển, tính năng hay dự án (Scale S1-S4) BẮT BUỘC phải tạo tài liệu đặc tả bền vững lưu trữ vĩnh viễn trong thư mục `specs/` của dự án (workspace project).
    - Tuyệt đối KHÔNG ĐƯỢC chỉ viết mỗi kế hoạch tạm thời trong thư mục tạm `brain/<session-id>/implementation_plan.md` của Antigravity rồi nhảy cóc vào code.
@@ -87,8 +104,8 @@ Goal Mode OS must not operate as a closed prompt silo.
 
 Before acting on S1 or larger work:
 
-1. Discover active capabilities with `goal-capability-registry`.
-2. Select the process path with `goal-skill-router`.
+1. Discover active capabilities with `mode-os-kernel`.
+2. Select the process path with `mode-os-planning` or `mode-os-implementation`.
 3. Prefer Antigravity-native primitives and external process skills when they fit the phase.
 4. Load only the selected skills and policies.
 5. Log the routing decision in `ai/skill-routing-log.md`.
